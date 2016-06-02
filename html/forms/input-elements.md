@@ -1,0 +1,10 @@
+# Inspected element on input of "full name"
+# Inspect element returned 'input type="text"'
+# input type="email"
+# input type="password"
+# input type="text" name="adv-name"
+# select value="bike"
+# option value="road"
+# input type ="date"
+# input type = "checkbox"
+# button type="submit"
