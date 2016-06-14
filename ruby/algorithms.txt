@@ -1,0 +1,53 @@
+Elevator Algorithm
+
+-Until door of elevator has opened, wait in front of elevator
+-When door has opened:
+  -Move forward into elevator towards back wall of elevator
+  -When you have reached the back wall, turn left until you have reached the corner of the elevator
+  -When you have reached the corner, turn left again until you see an array of numbers arranged in a grid to the right of the door
+-For a set of buttons with numbers for floors with n number of floors, set your desired floor number to f. Set the first floor of the building to i
+  -As long as i is less than n
+    -If i does not equal f, increment i by 1
+  -When i equals f, touch the button with the value i
+-Check display in elevator of current floor
+  -Until display shows value of desired floor wait
+  -When display shows value of desired floor, move left towards door
+-Exit elevator
+
+
+Making Hummus Algorithm
+
+-On counter: pull knife
+-In cabinet: pull clove of garlic, salt, and tahini
+-In fridge: pull lemon and chickpeas
+-Smash clove of garlic with side of knife, check for skin:
+  -Until garlic skin is absent, peel skin with fingers
+  -Put garlic in food processor
+-Cut lemon with knife and juice lemon with lemon juicer
+  -Pour lemon juice through strainer into food processor
+  -Until there is no clog in strainer, shake strainer
+-Pour tahini into food processor
+-Add salt to food processor
+-Blend ingredients:
+  -Until contents are creamy:
+    -Put lid on food processor
+    -Press "blend" button on food processor
+      -Wait 10 seconds
+    -Take lid off of food processor
+    -With spoon, check creaminess
+  -Add chickpeas to blender
+  -Until contents are creamy:
+    -Put lid on food processor
+    -Press "blend" button on food processor
+      -Wait 10 seconds
+    -Take lid off of food processor
+    -With spoon, check creaminess
+  -Until contents are tasty:
+    -Add pinch of salt to food processor
+    -Put lid on food processor
+    -Press "blend" button on food processor
+      -Wait 10 seconds
+    -Take lid off of food processor
+    -With mouth, check tastiness
+  -Return contents from food processor to tupperward
+-Return items to cabinet and fridge
