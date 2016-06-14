@@ -1,0 +1,42 @@
+header {
+  background-color: lightblue;
+  text-align: center;
+  border: solid 3px black;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+header h1 {
+  font-family: Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.column-1 {
+  background-color: yellow;
+  display: inline-block;
+  position: relative;
+  float: left;
+  width: 48%;
+  height: 100%;
+  vertical-align: text-top;
+  margin: 5px;
+}
+
+.column-2 {
+  background-color: red;
+  display: inline-block;
+  position: relative;
+  float: right;
+  width: 48%;
+  height: 100%;
+  vertical-align: text-top;
+  margin: 5px;
+}
+
+footer {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
