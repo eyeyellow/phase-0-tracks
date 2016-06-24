@@ -1,8 +1,9 @@
+# Reverse the names and output them in an array
 def rev(name)
   name.split(' ').reverse
 end
 
-
+# Reassign vowel to next vowel in sequence
 def next_vowel(vowel)
   vowels = "aeiou".split('')
   if vowel == "u"
@@ -14,7 +15,7 @@ def next_vowel(vowel)
   end
 end
 
-
+# Reassign consonant to next vowel in sequence
 def next_cons(consonant)
   consonants = "bcdfghjklmnpqrstvwxyz".split('')
   if consonant == "z"
@@ -26,7 +27,10 @@ def next_cons(consonant)
   end
 end
 
-
+# Make characters downcase for checking
+# Iterate through name arrays to check whether characters are vowels or consonants
+# Make first characters upcase again
+# Join character arrays back together
 def name_alias(name)
   vowels = "aeiou".split('')
   consonants = "bcdfghjklmnpqrstvwxyz".split('')
@@ -44,7 +48,8 @@ def name_alias(name)
   return name.join('')
 end
 
-
+# Calls rev and name_alias methods to cut up words
+# Concatenates words back together and outputs alias name
 def name_concat(input_name)
   split_name = rev(input_name)
   name1 = name_alias(split_name[0])
@@ -52,21 +57,32 @@ def name_concat(input_name)
   return name1 + " " + name2
 end
 
+# User interface
+name_hash = {}
 
 puts "Please enter your name:\n"
 input_name = gets.chomp
 output_name = name_concat(input_name)
+name_hash[input_name] = output_name
 puts "\nYour spy name is:\n#{output_name}\n\nEnter another name, or type 'quit' to exit."
 next_input_name = gets.chomp
+
 
 until next_input_name == "quit"
 
   output_name = name_concat(next_input_name)
+  name_hash[next_input_name] = output_name
   puts "\nYour spy name is:\n#{output_name}\n\nEnter another name, or type 'quit' to exit."
   next_input_name = gets.chomp
 
 end
 
+# Outputs array of saved alias names
+puts "\n"
+
+name_hash.each do | real, spy |
+  puts "#{spy} is actually #{real}.\n"
+end
 
 
 
