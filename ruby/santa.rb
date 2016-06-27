@@ -36,7 +36,7 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 santas = []
 10.times do |i|
   santas[i] = Santa.new(example_genders.sample, example_ethnicities.sample)
-  Random.new.rand(100).times {santas[i].celebrate_birthday}
+  Random.new.rand(140).times {santas[i].celebrate_birthday}
   puts "Santa \##{i + 1} is #{santas[i].age} years old, #{santas[i].gender}, and #{santas[i].ethnicity}."
 end
 
