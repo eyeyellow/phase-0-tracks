@@ -20,14 +20,14 @@ end
 
 #find out how to get the index of every letter in the alphabet
 def decrypt(string)
- i=0
+ i = 0
  alphabet = "abcdefghijklmnopqrstuvwxyz"#alphabet variable
- while i<string.length
+ while i < string.length
      #we need to tell the alphabet string what index the letter of the string letter is in the alphabet
 # num = hello[0]==>"h" alphabet.index("h")==>7
    #num-1==> 6
    #alphabet[6]
-string[i]= alphabet[alphabet.index(string[i])-1]
+string[i] = alphabet[alphabet.index(string[i])-1]
  #p string[alphabet.index(alphabet[i-1])]
 
 i+=1
