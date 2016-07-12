@@ -18,6 +18,7 @@ while employee_number > 0
 
   puts "Name any allergies that you have. Type 'done' when you are finished"
   allergies = gets.chomp
+
   until allergies === "done"
     if allergies === "sunshine"
       puts "Probably a vampire."
