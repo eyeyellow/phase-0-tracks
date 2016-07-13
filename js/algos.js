@@ -41,7 +41,7 @@ function keyVal(obj1, obj2) {
 
 
 // Function for generating random strings:
-// takes 1 argument specifying numbers of characters in string
+// takes 1 argument specifying numbers of cstrings
 //  -have local variable that has string of alphabet
 //  -generate random number (also assigned to local variable)
 //   -multiply by 26(?) to get it to be an integer (also, .floor?)
@@ -50,11 +50,16 @@ function keyVal(obj1, obj2) {
 
 function randString(num) {
   var alphabet = "abcdefghijklmnopqrstuvwxyz";
-  string = "";
-  for (var i = 0; i < num; i++) {
-    string += alphabet[Math.floor(Math.random() * 26)];
+  var stringArray = [];
+  for (var j = 0; j < num; j++) {
+    var string = "";
+    var numChars = Math.floor(Math.random() * 10 + 1);
+    for (var i = 0; i < numChars; i++) {
+      string += alphabet[Math.floor(Math.random() * 26)];
+    }
+    stringArray.push(string);
   }
-  return string;
+  return stringArray;
 }
 
 
@@ -74,3 +79,10 @@ function randString(num) {
 // Tests for generating random strings:
 // console.log(randString(3));
 // console.log(randString(9));
+
+// Driver code for Release 2.2:
+for (i = 0; i < 10; i++) {
+  var randArray = randString(6);
+  console.log("Array #" + (i + 1) + " " + randArray);
+  console.log("The longest word is: " + findMax(randArray));
+}
