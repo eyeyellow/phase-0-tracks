@@ -1,0 +1,65 @@
+1) Display infor from one table:
+
+sqlite> SELECT * FROM library;
+
+1|White Noise|Don|DeLillo|1985|1
+2|The People's History of the United States|Howard|Zinn|1980|2
+3|Slaughterhouse-Five|Kurt|Vonnegut|1969|1
+4|The Signal and the Noise|Nate|Silver|2012|2
+5|Encyclopédie|Denis|Diderot|1766|3
+6|On the Origin of Species|Charles|Darwin|1859|2
+
+2) Update an item that meets some condition:
+
+sqlite> UPDATE library SET
+   ...> date_pub=1751 WHERE author_last="Diderot";
+
+3) Display the information in both tables using one query:
+
+sqlite> SELECT * FROM library, genres WHERE library.genre_id = genres.id;
+
+1|White Noise|Don|DeLillo|1985|1|1|fiction
+2|The People's History of the United States|Howard|Zinn|1980|2|2|non-fiction
+3|Slaughterhouse-Five|Kurt|Vonnegut|1969|1|1|fiction
+4|The Signal and the Noise|Nate|Silver|2012|2|2|non-fiction
+5|Encyclopédie|Denis|Diderot|1751|3|3|reference
+6|On the Origin of Species|Charles|Darwin|1859|2|2|non-fiction
+
+4) Display a narrower selection of columns:
+
+sqlite> SELECT library.title, library.author_last, genres.genre FROM library JOIN genres ON library.genre_id = genres.id;
+
+White Noise|DeLillo|fiction
+The People's History of the United States|Zinn|non-fiction
+Slaughterhouse-Five|Vonnegut|fiction
+The Signal and the Noise|Silver|non-fiction
+Encyclopédie|Diderot|reference
+On the Origin of Species|Darwin|non-fiction
+
+5) Delete an item that meets some condition:
+
+sqlite> DELETE FROM library WHERE author_last="Silver";
+
+
+
+Different types of JOIN:
+
+sqlite> SELECT library.title, library.author_last, genres.genre FROM library LEFT JOIN genres ON library.genre_id = genres.id;
+
+White Noise|DeLillo|fiction
+The People's History of the United States|Zinn|non-fiction
+Slaughterhouse-Five|Vonnegut|fiction
+Encyclopédie|Diderot|reference
+On the Origin of Species|Darwin|non-fiction
+
+sqlite> SELECT library.title, library.author_last, genres.genre FROM library RIGHT JOIN genres ON library.genre_id = genres.id;
+
+Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+sqlite> SELECT library.title, library.author_last, genres.genre FROM library INNER JOIN genres ON library.genre_id = genres.id;
+
+White Noise|DeLillo|fiction
+The People's History of the United States|Zinn|non-fiction
+Slaughterhouse-Five|Vonnegut|fiction
+Encyclopédie|Diderot|reference
+On the Origin of Species|Darwin|non-fiction
