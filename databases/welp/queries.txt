@@ -1,0 +1,22 @@
+welp :> sqlite3 welp.db
+SQLite version 3.8.10.2 2015-05-20 18:17:19
+Enter ".help" for usage hints.
+sqlite> SELECT reviews.comment FROM reviews
+   ...> JOIN businesses
+   ...> ON reviews.business_id = businesses.id
+   ...> JOIN users
+   ...> ON reviews.user_id = users.id;
+
+Really confusing name
+Superb dancing experiences
+My car was totalled by Amir
+
+sqlite> SELECT users.first_name, businesses.name, reviews.comment FROM reviews
+   ...> JOIN businesses
+   ...> ON reviews.business_id = businesses.id
+   ...> JOIN users
+   ...> ON reviews.user_id = users.id;
+
+Bradford|Grundy Hollow Wedding Chapel|Really confusing name
+Mandy|The Beagle Nightclub|Superb dancing experiences
+Jolie|Amir's Towing|My car was totalled by Amir
