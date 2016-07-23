@@ -25,6 +25,15 @@ SELECT plants.name, water_log.water_date FROM
    ON plants.id = water_log.plant_type
 SQL
 
+reminder_query_cmd = <<-SQL
+SELECT plants.name, water_log.water_date FROM
+   plants JOIN water_log
+   ON plants.id = water_log.plant_type
+   GROUP BY water_log.plant_type
+   ORDER BY water_log.id DESC
+   LIMIT 3
+SQL
+
 db.execute_batch(create_table_cmd)
 
 
@@ -60,6 +69,29 @@ def view_log(db, view_log_cmd)
   end
 end
 
+def calc_next_date(log)
+  plant = log[0]
+    case plant
+  when "Perennials"
+    days = 2
+  when "Succulents"
+    days = 7
+  when "Vegetables"
+    days = 1
+  else
+    days = nil
+  end
+  d = Date.parse(log[1])
+  puts "The next time to water your #{plant.downcase} is on #{d.next_day(days)}."
+end
+
+def get_reminder(db, reminder_query_cmd)
+  puts "-----------------------------------------"
+  logs = db.execute(reminder_query_cmd)
+  logs.each do |log|
+    calc_next_date(log)
+  end
+end
 
 user_input = ""
 while user_input != "4"
@@ -76,6 +108,7 @@ while user_input != "4"
     when "2"
       view_log(db, view_log_cmd)
     when "3"
+      get_reminder(db, reminder_query_cmd)
     else
       user_input = "4"
     end

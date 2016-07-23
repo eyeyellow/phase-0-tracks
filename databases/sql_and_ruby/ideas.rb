@@ -1,3 +1,9 @@
+require 'date'
+
+d = Date.new(2011, 2, 3, 4)
+puts d
+puts d.inspect
+puts d.to_s
 # Ideas for 8.5:
 #   Gardening calendar app:
 #     Log dates for gardening - prompt user
