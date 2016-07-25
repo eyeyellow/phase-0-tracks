@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Project</title>
+        <link rel='stylesheet' type='text/css' href='styles.css'/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type='text/javascript' src='script.js'></script>
+  </head>
+  <body>
+    <h1 id='top-heading'>What do you plan on doing this week?</h1>
+    <div class='sticky'>
+      <h2 id='stickyhead'>To do:</h2>
+      <table>
+        <tr class='tablehead'>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+          <th>Sun</th>
+        </tr>
+        <tr>
+          <td class='item' id='mon'></td>
+          <td class='item' id='tue'></td>
+          <td class='item' id='wed'></td>
+          <td class='item' id='thu'></td>
+          <td class='item' id='fri'></td>
+          <td class='item' id='sat'></td>
+          <td class='item' id='sun'></td>
+        </tr>
+      </table>
+    </div>
+    <h2 id='form-heading'>Enter something that you want to do this week:</h2>
+    <textarea id='textEntryBox' name="ToDoItem" rows="3" cols="70">Enter what you want to do</textarea>
+      <div>
+        <label>Select a day:</label>
+        <select id="day">
+          <option value="mon">Monday</option>
+          <option value="tue">Tuesday</option>
+          <option value="wed">Wednesday</option>
+          <option value="thu">Thursday</option>
+          <option value="fri">Friday</option>
+          <option value="sat">Saturday</option>
+          <option value="sun">Sunday</option>
+        </select>
+        <div id="button">Add item to do</div>
+      </div>
+  </body>
+</html>

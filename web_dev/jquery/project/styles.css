@@ -1,0 +1,58 @@
+#top-heading {
+  font-family: courier, sans-serif;
+  color: blue;
+  text-align: center;
+}
+
+.sticky {
+  background-color: #E2E04A;
+  margin: auto;
+  width: 80%;
+  border: 2px solid #E2D454;
+  padding: 5px;
+}
+
+#stickyhead {
+  font-family: courier, sans-serif;
+  font-size: 1.25em;
+  color: black;
+  text-align: center;
+  margin: auto;
+  width: 90%;
+}
+
+.tablehead {
+  font-family: courier, sans-serif;
+  font-size: 1.25em;
+  color: black;
+  text-align: center;
+  margin: auto;
+  width: 90%;
+}
+
+.item {
+  border: 1px solid #E2D454;
+  font-family: courier, sans-serif;
+  font-size: 1em;
+  color: black;
+  width: 100px;
+}
+
+#form-heading {
+  font-family: courier, sans-serif;
+  color: green;
+  text-align: center;
+}
+
+#button{
+  display: inline-block;
+  height:20px;
+  width:200px;
+  background-color: blue;
+  font-family:arial;
+  font-weight:bold;
+  color:#ffffff;
+  border-radius: 5px;
+  text-align:center;
+  margin-top:2px;
+}
