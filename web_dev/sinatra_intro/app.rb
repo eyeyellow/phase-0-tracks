@@ -5,12 +5,6 @@ require 'sqlite3'
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
 
-# write a basic GET route
-# add a query parameter
-# GET /
-get '/' do
-  "#{params[:name]} is #{params[:age]} years old."
-end
 
 # write a GET route with
 # route parameters
@@ -75,4 +69,19 @@ get '/:num1/add/:num2' do
   second_num = params[:num2].to_i
   result = first_num + second_num
   result.to_s
+end
+
+# Optional bonus: Make a route that allows the user to search
+# the database in some way -- maybe for students who have a
+# certain first name, or some other attribute. If you like,
+# you can simply modify the home page to take a query parameter,
+# and filter the students displayed if a query parameter is present.
+
+# This seraches for students by campus as a query parameter on the homepage:
+# name with spaces have to be interspersed with %20:
+# i.e. http://localhost:9393/?name=Dandre%20Wiegand
+
+get '/' do
+  student = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+  student.to_s
 end
