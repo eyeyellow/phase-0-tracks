@@ -94,3 +94,20 @@ post '/search' do
   @students = db.execute("SELECT * FROM students WHERE campus=?", [params['campus']])
   erb :home
 end
+
+# Responses to prompts at end of challenge:
+
+# Is Sinatra the only web app library in Ruby? What are some others?
+
+# It was a bit hard to find libraries - as opposed to frameworks,
+# but I found Rails (of course), lotus, and volt as other ones
+
+# Are SQLite and the sqlite3 gem your only options for using a database with Sinatra? What are some others?
+
+# No, there are also activerecord and datamapper for Sinatra apps
+
+# What is meant by the term web stack?
+
+# It looks like this refers to the combination of web technologies, languages,
+# operating systems, and databases used in combination to make
+# web applications
