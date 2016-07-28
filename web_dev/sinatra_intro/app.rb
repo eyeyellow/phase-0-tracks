@@ -5,12 +5,6 @@ require 'sqlite3'
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
 
-# write a basic GET route
-# add a query parameter
-# GET /
-get '/' do
-  "#{params[:name]} is #{params[:age]} years old."
-end
 
 # write a GET route with
 # route parameters
@@ -44,3 +38,76 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+# A /contact route that displays an address:
+
+get '/contact' do
+  "DBC San Francisco address:<br>633 Folsom St, San Francisco, CA 94107"
+end
+
+# A /great_job route that can take a person's name
+# as a query parameter (not a route parameter)
+# and say "Good job, [person's name]!".
+# If the query parameter is not present,
+# the route simply says "Good job!"
+
+get '/great_job/' do
+  name = params[:name]
+  if name
+    "Good job, #{name}!"
+  else
+    "Good job!"
+  end
+end
+
+# A route that uses route parameters to add two numbers
+# and respond with the result. The data types are tricky here
+# -- when will the data need to be (or arrive as) a string?
+
+get '/:num1/add/:num2' do
+  first_num = params[:num1].to_i
+  second_num = params[:num2].to_i
+  result = first_num + second_num
+  result.to_s
+end
+
+# Optional bonus: Make a route that allows the user to search
+# the database in some way -- maybe for students who have a
+# certain first name, or some other attribute. If you like,
+# you can simply modify the home page to take a query parameter,
+# and filter the students displayed if a query parameter is present.
+
+# This seraches for students by campus as a query parameter on the homepage:
+# name with spaces have to be interspersed with %20:
+# i.e. http://localhost:9393/?name=Dandre%20Wiegand
+
+# get '/' do
+#   student = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+#   student.to_s
+# end
+
+get '/' do
+  erb :home
+end
+
+post '/search' do
+  @students = db.execute("SELECT * FROM students WHERE campus=?", [params['campus']])
+  erb :home
+end
+
+# Responses to prompts at end of challenge:
+
+# Is Sinatra the only web app library in Ruby? What are some others?
+
+# It was a bit hard to find libraries - as opposed to frameworks,
+# but I found Rails (of course), lotus, and volt as other ones
+
+# Are SQLite and the sqlite3 gem your only options for using a database with Sinatra? What are some others?
+
+# No, there are also activerecord and datamapper for Sinatra apps
+
+# What is meant by the term web stack?
+
+# It looks like this refers to the combination of web technologies, languages,
+# operating systems, and databases used in combination to make
+# web applications
