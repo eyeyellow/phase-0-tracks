@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search by Age</title>
+</head>
+<body>
+  <h1>Please enter the age of the student that you are searching for:</h1>
+  <form action='/search' method="POST">
+    <input type="text" name="age">
+    <button type="submit">Save</button>
+  <ul>
+    <% if @students %>
+    <% @students.each do |student| %>
+      <li><%= student['name'] %>, <%= student['age'] %></li>
+    <% end %>
+    <% end %>
+  </ul>
+</body>
+</html>
