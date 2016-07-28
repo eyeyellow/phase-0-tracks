@@ -81,7 +81,16 @@ end
 # name with spaces have to be interspersed with %20:
 # i.e. http://localhost:9393/?name=Dandre%20Wiegand
 
+# get '/' do
+#   student = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+#   student.to_s
+# end
+
 get '/' do
-  student = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
-  student.to_s
+  erb :home
+end
+
+post '/search' do
+  @students = db.execute("SELECT * FROM students WHERE campus=?", [params['campus']])
+  erb :home
 end
