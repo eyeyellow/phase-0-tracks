@@ -25,3 +25,16 @@ post '/students' do
 end
 
 # add static resources
+
+# /student_age/ route leads to a page where the user can seach for
+# students' ages and returns results to to page diplayed underneath
+# the search form in :search_by_age
+
+get '/student_age/' do
+  erb :search_by_age
+end
+
+post '/search' do
+  @students = db.execute("SELECT * FROM students WHERE age=?", [params['age']])
+  erb :search_by_age
+end
